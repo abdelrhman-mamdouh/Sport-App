@@ -16,13 +16,19 @@ class MainScreenCollectionViewController: UICollectionViewController , UICollect
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         self.collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         
         self.collectionView.contentInset.top =  max((collectionView.frame.height - 400) / 2, 0)
         self.collectionView.contentInset.left = 10
         self.collectionView.contentInset.right = 10
-        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.navigationItem.title="Sports"
+    }
+    
+    
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("pressed")
@@ -56,7 +62,8 @@ class MainScreenCollectionViewController: UICollectionViewController , UICollect
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MainScreenCollectionViewCell
         
         cell.mainTitle.text = sports[indexPath.item].title
-        cell.mainImage.image = UIImage(named: sports[indexPath.item].imageName)
+        cell.mainImage.image = UIImage(named:sports[indexPath.item].imageName)
+         
         cell.layer.cornerRadius	= 20.0
         
         
