@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F632BE82BEE5AA700040594 /* MainScreenCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F632BE72BEE5AA700040594 /* MainScreenCollectionViewCell.swift */; };
+		0F632BEA2BEE5BAD00040594 /* MainScreenCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F632BE92BEE5BAD00040594 /* MainScreenCollectionViewController.swift */; };
+		0F632BEC2BEE5F3E00040594 /* Sports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F632BEB2BEE5F3E00040594 /* Sports.swift */; };
 		6E9EDD402BED2968007589DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9EDD3F2BED2968007589DE /* AppDelegate.swift */; };
 		6E9EDD422BED2968007589DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9EDD412BED2968007589DE /* SceneDelegate.swift */; };
 		6E9EDD442BED2968007589DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9EDD432BED2968007589DE /* ViewController.swift */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F632BE72BEE5AA700040594 /* MainScreenCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCollectionViewCell.swift; sourceTree = "<group>"; };
+		0F632BE92BEE5BAD00040594 /* MainScreenCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCollectionViewController.swift; sourceTree = "<group>"; };
+		0F632BEB2BEE5F3E00040594 /* Sports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sports.swift; sourceTree = "<group>"; };
 		6E9EDD3C2BED2968007589DE /* SportSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E9EDD3F2BED2968007589DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E9EDD412BED2968007589DE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,10 +68,13 @@
 				6E9EDD412BED2968007589DE /* SceneDelegate.swift */,
 				6E9EDD432BED2968007589DE /* ViewController.swift */,
 				6E9EDD452BED2968007589DE /* Main.storyboard */,
+				0F632BE92BEE5BAD00040594 /* MainScreenCollectionViewController.swift */,
+				0F632BE72BEE5AA700040594 /* MainScreenCollectionViewCell.swift */,
 				6E9EDD4B2BED296B007589DE /* Assets.xcassets */,
 				6E9EDD4D2BED296B007589DE /* LaunchScreen.storyboard */,
 				6E9EDD502BED296B007589DE /* Info.plist */,
 				6E9EDD482BED2968007589DE /* SportSync.xcdatamodeld */,
+				0F632BEB2BEE5F3E00040594 /* Sports.swift */,
 			);
 			path = SportSync;
 			sourceTree = "<group>";
@@ -141,6 +150,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F632BEC2BEE5F3E00040594 /* Sports.swift in Sources */,
+				0F632BE82BEE5AA700040594 /* MainScreenCollectionViewCell.swift in Sources */,
+				0F632BEA2BEE5BAD00040594 /* MainScreenCollectionViewController.swift in Sources */,
 				6E9EDD442BED2968007589DE /* ViewController.swift in Sources */,
 				6E9EDD402BED2968007589DE /* AppDelegate.swift in Sources */,
 				6E9EDD422BED2968007589DE /* SceneDelegate.swift in Sources */,
