@@ -11,8 +11,8 @@ private let reuseIdentifier = "MainScreenCollectionViewCell"
 
 class MainScreenCollectionViewController: UICollectionViewController , UICollectionViewDelegateFlowLayout {
 
-    let sports :[Sports] = [Sports(title: "Football", imageName: "football_icon") ,Sports(title: "Tennis", imageName: "tennis_icon") ,Sports(title: "Basketball", imageName: "basketball_icon") ,Sports(title: "Cricket", imageName: "cricket_icon") ,Sports(title: "Hockey", imageName: "ice_hockey_icon") ,Sports(title: "Rugby", imageName: "rugbyball_icon")
-    ]
+    let sports :[Sports] = [Sports(title: "Football", imageName: "football_icon") ,Sports(title: "Tennis", imageName: "tennis_icon") ,Sports(title: "Basketball", imageName: "basketball_icon") ,Sports(title: "Cricket", imageName: "cricket_icon")]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -78,7 +78,11 @@ class MainScreenCollectionViewController: UICollectionViewController , UICollect
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(sports[indexPath.item].title)
+        let secondScreen = self.storyboard?.instantiateViewController(withIdentifier: "sportsLeagues") as! LeaguesTableViewController
+    
+        secondScreen.viewModel = LeaguesViewModel(sport: sports[indexPath.item].title.lowercased() )
+        print(secondScreen.viewModel?.sport)
+        self.tabBarController?.navigationController?.pushViewController(secondScreen, animated: true)
     }
     
     

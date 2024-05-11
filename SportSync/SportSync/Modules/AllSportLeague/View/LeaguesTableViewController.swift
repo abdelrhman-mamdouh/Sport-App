@@ -6,13 +6,23 @@
 //
 
 import UIKit
-
+import Kingfisher
 class LeaguesTableViewController: UITableViewController {
     let names :[String] = ["mohamed" , "ahmed","anas"]
+    var viewModel : LeaguesViewModel?
     override func viewDidLoad() {
         super.viewDidLoad()
-
       
+        viewModel?.fetchLeagues(completionHandler: { leagues, error in
+            
+            if leagues != nil {
+                self.tableView.reloadData()
+                print("success")
+            }else{
+//                ShowErr
+                print("error")
+            }
+        })
         
     }
 
@@ -20,7 +30,7 @@ class LeaguesTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return names.count
+        return viewModel?.getResult().count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -35,10 +45,12 @@ class LeaguesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LeaguesTableViewCell", for: indexPath) as! LeaguesTableViewCell
+        let currentLeague = viewModel?.getResult()[indexPath.section]
+        print(currentLeague?.leagueLogo)
+        cell.leagueImage.kf.setImage(with: URL(string: currentLeague?.leagueLogo ?? " ") , placeholder: UIImage(named: "league"))
         
-        cell.leagueImage.image = UIImage(named: "tom-briskey-HM3WZ4B1gvM-unsplash")
         
-        cell.leagueTitle.text = names[indexPath.section]
+        cell.leagueTitle.text = currentLeague?.leagueName
         
 
          

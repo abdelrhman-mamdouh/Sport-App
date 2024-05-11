@@ -13,10 +13,10 @@ struct LeagueResponse: Decodable {
 }
 
 struct League: Decodable {
-    let leagueKey: Int
-    let leagueName: String
-    let countryKey: Int
-    let countryName: String
+    let leagueKey: Int?
+    let leagueName: String?
+    let countryKey: Int?
+    let countryName: String?
     let leagueLogo: String?
     let countryLogo: String?
     enum CodingKeys: String, CodingKey {
