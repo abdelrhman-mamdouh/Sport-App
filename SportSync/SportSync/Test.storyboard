@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sNT-OV-64U">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Leagues Table View Controller-->
+        <scene sceneID="4Bl-sS-iKh">
+            <objects>
+                <tableViewController id="sNT-OV-64U" customClass="LeaguesTableViewController" customModule="SportSync" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="ssN-nh-6iY">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LeaguesTableViewCell" rowHeight="111" id="T3W-Ah-VLV" customClass="LeaguesTableViewCell" customModule="SportSync" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="393" height="111"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T3W-Ah-VLV" id="9h1-TJ-roC">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="111"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tom-briskey-HM3WZ4B1gvM-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="Mjl-Jq-RAW">
+                                            <rect key="frame" x="0.0" y="0.0" width="216" height="111"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="La Liga" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9SB-NF-iSr">
+                                            <rect key="frame" x="224" y="3" width="157" height="100"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="9SB-NF-iSr" firstAttribute="height" secondItem="9h1-TJ-roC" secondAttribute="height" multiplier="0.9" id="BQp-Ee-jKG"/>
+                                        <constraint firstItem="Mjl-Jq-RAW" firstAttribute="leading" secondItem="9h1-TJ-roC" secondAttribute="leading" id="NTw-wB-S3L"/>
+                                        <constraint firstItem="9SB-NF-iSr" firstAttribute="leading" secondItem="Mjl-Jq-RAW" secondAttribute="trailing" constant="8" id="Pve-hf-ghD"/>
+                                        <constraint firstItem="Mjl-Jq-RAW" firstAttribute="width" secondItem="9h1-TJ-roC" secondAttribute="width" multiplier="0.55" id="TII-1F-hHP"/>
+                                        <constraint firstAttribute="bottom" secondItem="Mjl-Jq-RAW" secondAttribute="bottom" id="UhS-10-zYq"/>
+                                        <constraint firstItem="9SB-NF-iSr" firstAttribute="top" secondItem="9h1-TJ-roC" secondAttribute="topMargin" constant="8" id="cnm-8C-d75"/>
+                                        <constraint firstAttribute="bottom" secondItem="9SB-NF-iSr" secondAttribute="bottom" constant="8" id="iK3-Xc-A5f"/>
+                                        <constraint firstItem="9SB-NF-iSr" firstAttribute="trailing" secondItem="9h1-TJ-roC" secondAttribute="trailingMargin" constant="8" id="reO-nc-zC6"/>
+                                        <constraint firstItem="Mjl-Jq-RAW" firstAttribute="top" secondItem="9h1-TJ-roC" secondAttribute="top" id="vHX-1x-hbY"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="leagueImage" destination="9h1-TJ-roC" id="eI4-De-Wa6"/>
+                                    <outlet property="leagueTitle" destination="9SB-NF-iSr" id="byv-um-uum"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="sNT-OV-64U" id="urv-Q5-09M"/>
+                            <outlet property="delegate" destination="sNT-OV-64U" id="K4J-JM-pIe"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xoc-uR-3PO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1044" y="47"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tom-briskey-HM3WZ4B1gvM-unsplash" width="2800" height="4200"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
