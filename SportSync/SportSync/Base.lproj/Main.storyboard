@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0CV-tU-Vjd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HFb-Ds-BRs">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
@@ -83,7 +83,7 @@
                                 <connections>
                                     <outlet property="mainImage" destination="IDs-vo-FZc" id="pEN-i2-gnL"/>
                                     <outlet property="mainTitle" destination="ffW-a4-kTO" id="v2k-Z5-JBF"/>
-                                    <segue destination="9NQ-Mp-d9f" kind="push" id="APG-Kh-Lbi"/>
+                                    <segue destination="0CV-tU-Vjd" kind="push" id="HRL-94-rHu"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -221,10 +221,11 @@
                             <outlet property="delegate" destination="0CV-tU-Vjd" id="JQl-9K-8Er"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="tsQ-Yd-RwL"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0dh-l1-3rm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1447" y="546"/>
+            <point key="canvasLocation" x="3134" y="196"/>
         </scene>
     </scenes>
     <resources>

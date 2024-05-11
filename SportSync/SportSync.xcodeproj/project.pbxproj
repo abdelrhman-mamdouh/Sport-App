@@ -14,7 +14,6 @@
 		0FDC8AB22BEEC634008B7C6F /* LeaguesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC8AB12BEEC634008B7C6F /* LeaguesTableViewCell.swift */; };
 		0FDC8AB42BEEC6B7008B7C6F /* LeaguesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC8AB32BEEC6B7008B7C6F /* LeaguesTableViewController.swift */; };
 		0FF24FAE2BEE88D900EDF5C0 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 0FF24FAD2BEE88D900EDF5C0 /* Lottie */; };
-		0FF24FB02BEE8AD800EDF5C0 /* Animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0FF24FAF2BEE8AD800EDF5C0 /* Animation.json */; };
 		6E9EDD402BED2968007589DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9EDD3F2BED2968007589DE /* AppDelegate.swift */; };
 		6E9EDD422BED2968007589DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9EDD412BED2968007589DE /* SceneDelegate.swift */; };
 		6E9EDD442BED2968007589DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9EDD432BED2968007589DE /* ViewController.swift */; };
@@ -31,7 +30,6 @@
 		0FDC8AAF2BEEC4AC008B7C6F /* Test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
 		0FDC8AB12BEEC634008B7C6F /* LeaguesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesTableViewCell.swift; sourceTree = "<group>"; };
 		0FDC8AB32BEEC6B7008B7C6F /* LeaguesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesTableViewController.swift; sourceTree = "<group>"; };
-		0FF24FAF2BEE8AD800EDF5C0 /* Animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animation.json; sourceTree = "<group>"; };
 		6E9EDD3C2BED2968007589DE /* SportSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E9EDD3F2BED2968007589DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E9EDD412BED2968007589DE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,7 +79,6 @@
 				0F632BE92BEE5BAD00040594 /* MainScreenCollectionViewController.swift */,
 				0F632BE72BEE5AA700040594 /* MainScreenCollectionViewCell.swift */,
 				6E9EDD4B2BED296B007589DE /* Assets.xcassets */,
-				0FF24FAF2BEE8AD800EDF5C0 /* Animation.json */,
 				6E9EDD4D2BED296B007589DE /* LaunchScreen.storyboard */,
 				6E9EDD502BED296B007589DE /* Info.plist */,
 				6E9EDD482BED2968007589DE /* SportSync.xcdatamodeld */,
@@ -159,7 +156,6 @@
 			files = (
 				6E9EDD4C2BED296B007589DE /* Assets.xcassets in Resources */,
 				6E9EDD4F2BED296B007589DE /* Base in Resources */,
-				0FF24FB02BEE8AD800EDF5C0 /* Animation.json in Resources */,
 				6E9EDD472BED2968007589DE /* Base in Resources */,
 				0FDC8AB02BEEC4AC008B7C6F /* Test.storyboard in Resources */,
 			);
