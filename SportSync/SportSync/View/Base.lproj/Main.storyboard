@@ -30,7 +30,7 @@
         <!--Sports-->
         <scene sceneID="6R9-cZ-C43">
             <objects>
-                <collectionViewController id="LKl-cN-VmA" customClass="MainScreenCollectionViewController" customModule="SportSync" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="id" id="LKl-cN-VmA" customClass="MainScreenCollectionViewController" customModule="SportSync" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="always" dataMode="prototypes" id="tFg-Qh-043">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -121,6 +121,69 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0If-Jz-Gti" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="447" y="-91"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ahV-KP-Hna">
+            <objects>
+                <viewController storyboardIdentifier="leagueDetails" id="djg-41-JBy" customClass="ViewController" customModule="SportSync" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ALH-Gb-mYo">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jKU-pO-6e4">
+                                <rect key="frame" x="0.0" y="125" width="393" height="693"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="edh-L7-eAZ">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="djg-41-JBy" id="UWm-y6-ray"/>
+                                    <outlet property="delegate" destination="djg-41-JBy" id="Pv9-fT-JzR"/>
+                                </connections>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g4w-QN-3Lj">
+                                <rect key="frame" x="16" y="59" width="62" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="MBE-D2-tJT"/>
+                                    <constraint firstAttribute="width" constant="62" id="uSf-d4-ezg"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" image="arrowshape.turn.up.backward" catalog="system" cornerStyle="capsule"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BgS-9Q-uT2">
+                                <rect key="frame" x="315" y="59" width="62" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="62" id="K2P-30-PkQ"/>
+                                    <constraint firstAttribute="height" constant="62" id="ewe-1s-EZQ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" image="bookmark" catalog="system" cornerStyle="capsule"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="PaQ-AP-hDO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="PaQ-AP-hDO" firstAttribute="trailing" secondItem="BgS-9Q-uT2" secondAttribute="trailing" constant="16" id="5Ac-cZ-f4c"/>
+                            <constraint firstItem="jKU-pO-6e4" firstAttribute="top" secondItem="BgS-9Q-uT2" secondAttribute="bottom" constant="4" id="6XQ-Eo-GhX"/>
+                            <constraint firstItem="BgS-9Q-uT2" firstAttribute="top" secondItem="PaQ-AP-hDO" secondAttribute="top" id="CBo-7w-nmL"/>
+                            <constraint firstItem="g4w-QN-3Lj" firstAttribute="top" secondItem="PaQ-AP-hDO" secondAttribute="top" id="KCc-ne-2sH"/>
+                            <constraint firstItem="jKU-pO-6e4" firstAttribute="leading" secondItem="PaQ-AP-hDO" secondAttribute="leading" id="V0z-at-dQ1"/>
+                            <constraint firstItem="g4w-QN-3Lj" firstAttribute="leading" secondItem="PaQ-AP-hDO" secondAttribute="leading" constant="16" id="cNh-Py-WwY"/>
+                            <constraint firstItem="jKU-pO-6e4" firstAttribute="trailing" secondItem="PaQ-AP-hDO" secondAttribute="trailing" id="pSL-B7-RdA"/>
+                            <constraint firstItem="PaQ-AP-hDO" firstAttribute="bottom" secondItem="jKU-pO-6e4" secondAttribute="bottom" id="rzn-Nu-bcl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="upComingEventsCollectionView" destination="jKU-pO-6e4" id="jmi-Ew-lRH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RpA-4f-Vnc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-702" y="685"/>
         </scene>
         <!--Leagues-->
         <scene sceneID="kYq-Ze-JlN">
@@ -229,6 +292,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrowshape.turn.up.backward" catalog="system" width="128" height="104"/>
+        <image name="bookmark" catalog="system" width="110" height="128"/>
         <image name="sportscourt.fill" catalog="system" width="128" height="83"/>
         <image name="tom-briskey-HM3WZ4B1gvM-unsplash" width="2800" height="4200"/>
         <systemColor name="systemBackgroundColor">

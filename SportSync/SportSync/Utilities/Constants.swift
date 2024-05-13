@@ -11,5 +11,10 @@ class Constants {
     static let baseURL = "https://apiv2.allsportsapi.com/"
     static let basketballBaseURL = "https://apiv2.allsportsapi.com/basketball/"
     static let cricketBaseURL = "https://apiv2.allsportsapi.com/cricket/"
+    static let upComingEventCellId = "UpComingEventsCollectionViewCell"
+    static let latestResultCellId = "LatestResultsCollectionViewCell"
+    static let teamsCollectionViewCell = "TeamsCollectionViewCell"
+    static let sectionHeaderCell = "SectionHeaderCell"
+    
 }
 

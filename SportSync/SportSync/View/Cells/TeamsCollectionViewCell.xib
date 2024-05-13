@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TeamsCollectionViewCell" id="VzY-NP-Rxs" customClass="TeamsCollectionViewCell" customModule="SportSync" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="190"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="150" height="190"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="basketball_icon" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yid-3U-6ee">
+                        <rect key="frame" x="16" y="16" width="118" height="118"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="118" id="UYD-HD-qzt"/>
+                            <constraint firstAttribute="width" constant="118" id="qTL-gc-0t7"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arsenal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hoz-f0-dGb">
+                        <rect key="frame" x="0.0" y="150" width="150" height="24"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="eEP-Ce-Yri"/>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="hoz-f0-dGb" firstAttribute="leading" secondItem="VzY-NP-Rxs" secondAttribute="leading" id="Syf-9r-Yk3"/>
+                <constraint firstItem="Yid-3U-6ee" firstAttribute="leading" secondItem="VzY-NP-Rxs" secondAttribute="leading" constant="16" id="Z8X-mU-OaN"/>
+                <constraint firstAttribute="trailing" secondItem="hoz-f0-dGb" secondAttribute="trailing" id="axM-50-QCH"/>
+                <constraint firstItem="hoz-f0-dGb" firstAttribute="top" secondItem="Yid-3U-6ee" secondAttribute="bottom" constant="16" id="hjz-yN-PhZ"/>
+                <constraint firstItem="Yid-3U-6ee" firstAttribute="top" secondItem="VzY-NP-Rxs" secondAttribute="top" constant="16" id="m2j-H7-g6c"/>
+                <constraint firstAttribute="trailing" secondItem="Yid-3U-6ee" secondAttribute="trailing" constant="16" id="mz2-UN-jbR"/>
+            </constraints>
+            <size key="customSize" width="146" height="161"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                    <real key="value" value="18"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="teamLogoImageView" destination="Yid-3U-6ee" id="lmd-DB-PMd"/>
+                <outlet property="teamNameLabel" destination="hoz-f0-dGb" id="yVt-ic-dHW"/>
+            </connections>
+            <point key="canvasLocation" x="201.44927536231884" y="173.4375"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="basketball_icon" width="512" height="512"/>
+    </resources>
+</document>
