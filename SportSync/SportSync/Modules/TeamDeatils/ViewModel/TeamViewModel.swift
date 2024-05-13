@@ -20,7 +20,7 @@ class TeamViewModel {
     
     func fetchTeam(completionHandler: @escaping ([Team]?, Error?) -> Void) {
     
-        var requestParameters: [String: Any] = ["met": "Teams", "teamId": id ?? 4998]
+        let requestParameters: [String: Any] = ["met": "Teams", "teamId": id ?? 4998]
         NetworkManager.shared.requestData(endpoint: sport ?? "", parameters: requestParameters) { (result: Result<TeamResponse, Error>) in
             switch result {
             case .success(let response):

@@ -44,7 +44,7 @@ class LeaguesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LeaguesTableViewCell", for: indexPath) as! LeaguesTableViewCell
         let currentLeague = viewModel?.getResult()[indexPath.section]
-        print(currentLeague?.leagueLogo)
+       
         cell.leagueImage.kf.setImage(with: URL(string: currentLeague?.leagueLogo ?? " ") , placeholder: UIImage(named: "league"))
         cell.leagueTitle.text = currentLeague?.leagueName
         return cell
@@ -53,8 +53,12 @@ class LeaguesTableViewController: UITableViewController {
         let viewController = self.storyboard?.instantiateViewController(withIdentifier: "leagueDetails") as! ViewController
         
         self.present(viewController, animated: true, completion: nil)
+
         print("Row selected")
     }
+    
+
+
  
 
 }

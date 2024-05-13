@@ -28,6 +28,8 @@ class ViewController: UIViewController{
         let nibCellUpComing = UINib(nibName: Constants.upComingEventCellId, bundle: nil)
         upComingEventsCollectionView.register(nibCellUpComing, forCellWithReuseIdentifier: Constants.upComingEventCellId)
         
+        
+        
         let nibCellLatestResults = UINib(nibName: Constants.latestResultCellId, bundle: nil)
         upComingEventsCollectionView.register(nibCellLatestResults, forCellWithReuseIdentifier: Constants.latestResultCellId)
        
@@ -145,6 +147,12 @@ class ViewController: UIViewController{
             }
         }
     }
+    
+    @IBAction func onBackPressed(_ sender: Any) {
+        
+        self.dismiss(animated: true)
+    }
+    
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout,UICollectionViewDelegate, UICollectionViewDataSource {
@@ -160,7 +168,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout,UICollectionViewDel
         case .upcomingEvents:
             return leagesDetailsViewModel?.getLeagesEvents().count ?? 0
         case .latestResults:
-            return leagesDetailsViewModel?.getLeagesEvents().count ?? 0
+            return leagesDetailsViewModel?.getLatestEvents().count ?? 0
         case .teams:
             return leagesDetailsViewModel?.getLeagueTeams().count ?? 0
         }
@@ -174,6 +182,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout,UICollectionViewDel
         switch section {
         case .upcomingEvents:
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.upComingEventCellId, for: indexPath) as! UpComingEventsCollectionViewCell
+            
             if let latestEvents = leagesDetailsViewModel?.getLeagesEvents(), indexPath.row < latestEvents.count {
                 let event = latestEvents[indexPath.row]
                 if let upComingCell = cell as? UpComingEventsCollectionViewCell {

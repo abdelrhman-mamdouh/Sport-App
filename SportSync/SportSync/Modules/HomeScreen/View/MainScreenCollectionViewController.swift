@@ -81,7 +81,6 @@ class MainScreenCollectionViewController: UICollectionViewController , UICollect
         let secondScreen = self.storyboard?.instantiateViewController(withIdentifier: "sportsLeagues") as! LeaguesTableViewController
     
         secondScreen.viewModel = LeaguesViewModel(sport: sports[indexPath.item].title.lowercased() )
-        print(secondScreen.viewModel?.sport)
         self.tabBarController?.navigationController?.pushViewController(secondScreen, animated: true)
     }
     

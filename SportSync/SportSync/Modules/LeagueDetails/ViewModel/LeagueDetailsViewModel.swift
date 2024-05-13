@@ -28,7 +28,7 @@ class LeagesDetailsViewModel {
     
     func fetchUpComingEvents(completionHandler: @escaping ([Event]?) -> Void) {
         let date = Utility.getDates()
-        var requestParameters: [String: Any] = [
+        let requestParameters: [String: Any] = [
             "met": "Fixtures",
             "leagueId": self.id as Any,
             "from": date.CurrentData,
