@@ -49,10 +49,20 @@ class LeaguesTableViewController: UITableViewController {
         cell.leagueTitle.text = currentLeague?.leagueName
         return cell
     }
+    
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "leagueDetails") as! ViewController
+        if Utility.checkConnection(){
+            let viewController = self.storyboard?.instantiateViewController(withIdentifier: "leagueDetails") as! ViewController
+            
+            let leagesDetailsViewModel = LeagesDetailsViewModel(id: viewModel?.getResult()[indexPath.section].leagueKey ?? 0, sport: viewModel?.sport ?? "football", leageName: viewModel?.getResult()[indexPath.section].leagueName ?? "Nil",
+                leageLogo:viewModel?.getResult()[indexPath.section].leagueLogo ?? "logo")
+            viewController.leagesDetailsViewModel = leagesDetailsViewModel
+            self.present(viewController, animated: true, completion: nil)
+        }else{
+            Utility.showToast(controller: self, message: "No Internet Connection Please Open Internet", seconds: 2)
+        }
         
-        self.present(viewController, animated: true, completion: nil)
 
         print("Row selected")
     }

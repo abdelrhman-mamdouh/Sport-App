@@ -6,10 +6,11 @@
 //
 
 import UIKit
-
+import Reachability
 private let reuseIdentifier = "MainScreenCollectionViewCell"
 
 class MainScreenCollectionViewController: UICollectionViewController , UICollectionViewDelegateFlowLayout {
+    let reachability = try! Reachability()
 
     let sports :[Sports] = [Sports(title: "Football", imageName: "football_icon") ,Sports(title: "Tennis", imageName: "tennis_icon") ,Sports(title: "Basketball", imageName: "basketball_icon") ,Sports(title: "Cricket", imageName: "cricket_icon")]
     
@@ -78,10 +79,16 @@ class MainScreenCollectionViewController: UICollectionViewController , UICollect
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let secondScreen = self.storyboard?.instantiateViewController(withIdentifier: "sportsLeagues") as! LeaguesTableViewController
-    
-        secondScreen.viewModel = LeaguesViewModel(sport: sports[indexPath.item].title.lowercased() )
-        self.tabBarController?.navigationController?.pushViewController(secondScreen, animated: true)
+        print(Utility.checkConnection())
+        if(Utility.checkConnection()){
+            let secondScreen = self.storyboard?.instantiateViewController(withIdentifier: "sportsLeagues") as! LeaguesTableViewController
+        
+            secondScreen.viewModel = LeaguesViewModel(sport: sports[indexPath.item].title.lowercased() )
+            self.tabBarController?.navigationController?.pushViewController(secondScreen, animated: true)
+        }else{
+            Utility.showToast(controller: self, message: "No Internet Connection Please Open internet ", seconds: 2)
+        }
+        
     }
     
     

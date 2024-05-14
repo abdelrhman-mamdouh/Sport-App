@@ -8,7 +8,10 @@
 
 import Foundation
 import UIKit
+import Reachability
 class Utility {
+     
+    
   static func showToast(controller: UIViewController, message : String, seconds: Double) {
         let alert = UIAlertController(title: nil, message:nil, preferredStyle: .alert)
         //rgb(0, 129, 138)
@@ -23,6 +26,7 @@ class Utility {
             alert.dismiss(animated: true)
         }
     }
+    
     static func getDates() -> (CurrentData: String, PastDate: String, NextDate: String, YesterDay: String) {
         let todayDate = Date()
         let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: todayDate)!
@@ -43,5 +47,20 @@ class Utility {
         print(nextDateStr)
         
         return (currentDateStr, pastDateStr, nextDateStr, yesterdayStr)
+    }
+    
+    static func checkConnection() ->Bool{
+        var reachability :Reachability? = try! Reachability()
+        
+        if reachability?.connection == .wifi || reachability?.connection == .cellular{
+            reachability = nil
+            return true
+        }else if reachability?.connection == .unavailable{
+            reachability = nil
+            return false
+        }
+        reachability = nil
+        return false
+
     }
 }

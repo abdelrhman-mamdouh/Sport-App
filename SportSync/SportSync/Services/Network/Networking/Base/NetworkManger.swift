@@ -19,10 +19,11 @@ class NetworkManager {
         var requestParams = parameters ?? [:]
         requestParams["APIkey"] = Constants.apiKey
         print("api link \(url)")
+    
         AF.request(url, method: method, parameters: requestParams)
             .validate()
             .responseDecodable(of: T.self) { response in
-              
+                
                 switch response.result {
                 case .success(let data):
                     completion(.success(data))

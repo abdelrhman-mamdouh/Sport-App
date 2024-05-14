@@ -9,15 +9,18 @@ enum Section: Int {
 }
 
 class ViewController: UIViewController{
-
-    
+    @IBOutlet weak var favouriteButton: UIButton!
     @IBOutlet weak var upComingEventsCollectionView: UICollectionView!
     var leagesDetailsViewModel: LeagesDetailsViewModel!
+    
+    var isFilledButton:Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.upComingEventsCollectionView.allowsSelection = true
-
+        isFilledButton = leagesDetailsViewModel.searchForAnItem()
+        checkFilledButton()
+        
         upComingEventsCollectionView.delegate = self
         upComingEventsCollectionView.dataSource = self
         
@@ -38,13 +41,24 @@ class ViewController: UIViewController{
        
         
         upComingEventsCollectionView.collectionViewLayout = createLayout()
-        
-        leagesDetailsViewModel = LeagesDetailsViewModel(id: 207, sport: "football", leageName: "Premier League")
+
         fetchLeagueEvents()
         fetchLatestEvents()
         fetchLeagueTeams()
     }
     
+    func checkFilledButton(){
+        
+
+        if isFilledButton == true{
+            favouriteButton.setImage(UIImage(systemName:"bookmark.fill"), for: .normal)
+        }else{
+            favouriteButton.setImage(UIImage(systemName:"bookmark"), for: .normal)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+    }
     private func createHorizontalLayout(forSection sectionIndex: Int) -> NSCollectionLayoutSection {
         let itemSizeHorizontal = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let itemHorizontal = NSCollectionLayoutItem(layoutSize: itemSizeHorizontal)
@@ -153,6 +167,32 @@ class ViewController: UIViewController{
         self.dismiss(animated: true)
     }
     
+    @IBAction func favouritePressed(_ sender: Any) {
+        if isFilledButton == false{
+            isFilledButton = true
+            checkFilledButton()
+            leagesDetailsViewModel.addItem(newItem: LeagueDetails(id: "\(leagesDetailsViewModel.id ?? 0)", title: leagesDetailsViewModel.leageName ?? "nilName", logo: leagesDetailsViewModel.leageLogo ?? "logo", country: "test"))
+            print("donePressed")
+        }else {
+            let alert = UIAlertController(title: "Alert", message: "Are you sure to delete From Favourite", preferredStyle: .actionSheet)
+            let negativeAction = UIAlertAction(title: "Yes", style: .destructive) { UIAlertAction in
+                self.isFilledButton = false
+                self.checkFilledButton()
+                self.leagesDetailsViewModel.deleteItemWithId()
+            }
+            let positiveAction = UIAlertAction(title: "No", style: .cancel) { UIAlertAction in
+                alert.dismiss(animated: true)
+                
+             }
+            alert.addAction(positiveAction)
+            alert.addAction(negativeAction)
+            self.present(alert, animated: true)
+        }
+        
+        
+        
+        
+    }
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout,UICollectionViewDelegate, UICollectionViewDataSource {

@@ -11,20 +11,37 @@ class LeagesDetailsViewModel {
    private var leagesEvents: [Event]?
    private var latestEvents: [Event]?
    private var leagueTeams: [Team]?
-    var id: Int?
-    var sport: String?
-    var leageName: String?
+    private let databaseHelper = DataBaseHelper.getInstance()
 
+     var id: Int?
+     var sport: String?
+     var leageName: String?
+     var leageLogo : String?
     
-    init(id: Int, sport: String, leageName: String) {
+    
+    init(id: Int, sport: String, leageName: String,leageLogo:String) {
         self.id = id
         self.sport = sport
         self.leageName = leageName
+        self.leageLogo = leageLogo
         leagesEvents = [Event]()
         latestEvents = [Event]()
     }
     
-   
+    func addItem(newItem : LeagueDetails){
+        print("pressed")
+        databaseHelper?.addItemToDataBase(newItem: newItem)
+    }
+    
+    func searchForAnItem() -> Bool{
+        let result = databaseHelper?.searchForALeague(id: "\(self.id ?? 0)").count == 1
+        return result
+    }
+    
+    func deleteItemWithId(){
+        print("from view model \(self.id)")
+        databaseHelper?.deleteItemWith(idObject: self.id ?? 0)
+    }
     
     func fetchUpComingEvents(completionHandler: @escaping ([Event]?) -> Void) {
         let date = Utility.getDates()
