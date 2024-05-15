@@ -348,7 +348,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="341"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="popular-3" translatesAutoresizingMaskIntoConstraints="NO" id="BYV-t1-0Qf">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="269.33333333333331"/>
+                                        <rect key="frame" x="0.0" y="59.999999999999986" width="393" height="204.66666666666663"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nsV-93-tZi">
                                         <rect key="frame" x="0.0" y="272.66666666666669" width="393" height="68.333333333333314"/>
@@ -392,13 +392,13 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="BYV-t1-0Qf" firstAttribute="top" secondItem="IIE-wt-voN" secondAttribute="top" id="9ya-nz-PJe"/>
+                                    <constraint firstItem="BYV-t1-0Qf" firstAttribute="top" secondItem="IIE-wt-voN" secondAttribute="top" constant="60" id="9ya-nz-PJe"/>
                                     <constraint firstAttribute="trailing" secondItem="BYV-t1-0Qf" secondAttribute="trailing" id="AJW-fS-SML"/>
                                     <constraint firstAttribute="bottom" secondItem="nsV-93-tZi" secondAttribute="bottom" id="Chx-iS-gae"/>
                                     <constraint firstItem="nsV-93-tZi" firstAttribute="height" secondItem="IIE-wt-voN" secondAttribute="height" multiplier="0.2" id="Ih6-rg-la5"/>
                                     <constraint firstItem="BYV-t1-0Qf" firstAttribute="leading" secondItem="IIE-wt-voN" secondAttribute="leading" id="Pbg-i0-BZf"/>
                                     <constraint firstAttribute="trailing" secondItem="nsV-93-tZi" secondAttribute="trailing" id="She-kF-gHp"/>
-                                    <constraint firstItem="BYV-t1-0Qf" firstAttribute="height" secondItem="IIE-wt-voN" secondAttribute="height" multiplier="0.79" id="VPp-aI-JFJ"/>
+                                    <constraint firstItem="BYV-t1-0Qf" firstAttribute="height" secondItem="IIE-wt-voN" secondAttribute="height" multiplier="0.6" id="VPp-aI-JFJ"/>
                                     <constraint firstItem="2xA-3h-uuR" firstAttribute="leading" secondItem="IIE-wt-voN" secondAttribute="leading" constant="16" id="jbG-U1-QYy"/>
                                     <constraint firstItem="nsV-93-tZi" firstAttribute="leading" secondItem="IIE-wt-voN" secondAttribute="leading" id="lBF-Wq-LjQ"/>
                                     <constraint firstItem="2xA-3h-uuR" firstAttribute="top" secondItem="IIE-wt-voN" secondAttribute="top" constant="32" id="oRG-kw-Rs8"/>

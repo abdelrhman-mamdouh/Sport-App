@@ -15,7 +15,8 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var playerImageview: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-    
+        
+        self.contentView.frame = self.contentView.frame.inset(by: UIEdgeInsets(top: 10.0, left: 0, bottom: 10.0, right: 0))
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
