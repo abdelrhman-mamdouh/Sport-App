@@ -12,7 +12,11 @@ class SectionHeaderCell: UICollectionReusableView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        layer.cornerRadius = 8
+                layer.masksToBounds = true
+        title.addElevation()
+        title.addShadow()
+        
     }
 }
 

@@ -17,7 +17,22 @@ class LatestResultsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var awayTeamNameLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        awayLogoImageView.addShadow()
+        awayLogoImageView.addElevation()
+        homeLogoImageView.addShadow()
+        homeLogoImageView.addElevation()
+        
+        homeTeamNameLabel.addShadow()
+        homeTeamNameLabel.addElevation()
+        awayTeamNameLabel.addShadow()
+        awayTeamNameLabel.addElevation()
+        
+        dateMatch.addShadow()
+        scoreLabel.addShadow()
+        scoreLabel.addElevation()
+        dateMatch.addElevation()
+        
+        
     }
 
 }

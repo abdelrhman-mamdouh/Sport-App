@@ -24,27 +24,40 @@ class TeamDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         playerTableView.delegate = self
         
       
-        playerTableView.register(UINib(nibName:"TableViewCell", bundle: nil), forCellReuseIdentifier:"TableViewCell")
-        playerTableView.separatorInset = UIEdgeInsets(top: 30, left: 0, bottom: 30, right: 0)
+        playerTableView.register(UINib(nibName:Constants.tableViewCell, bundle: nil), forCellReuseIdentifier:Constants.tableViewCell)
+   
         
         teamImageView.kf.setImage(with: URL(string: teamViewModel.teamDetails.team_logo ?? ""), placeholder: UIImage(named: "leauge"))
         sportName.text = teamViewModel.sport
         leagueName.text = teamViewModel.leagueName
+        teamImageView.makeCircular()
+        teamImageView.addShadow()
+        teamImageView.addElevation()
+        playerTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
         playerTableView.reloadData()
         
     }
     
 
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
         return teamViewModel.teamDetails.players?.count ?? 0
     }
-    
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+      
+        return 1
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
-        if let player = teamViewModel.teamDetails.players?[indexPath.row] {
-               cell.setPlayerData(player)
-           }
+        
+        if let player = teamViewModel.teamDetails.players?[indexPath.section] {
+          
+            cell.contentView.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 30, right: 0)
+            cell.setPlayerData(player)
+        }
         
         return cell
     }

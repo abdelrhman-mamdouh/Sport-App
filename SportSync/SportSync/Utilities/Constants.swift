@@ -15,6 +15,7 @@ class Constants {
     static let latestResultCellId = "LatestResultsCollectionViewCell"
     static let teamsCollectionViewCell = "TeamsCollectionViewCell"
     static let sectionHeaderCell = "SectionHeaderCell"
+    static let tableViewCell = "TableViewCell"
     
 }
 

@@ -20,9 +20,14 @@ class TableViewCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
-        
+           super.layoutSubviews()
+           
        
-    }
+           contentView.layer.borderWidth = 5.0
+           contentView.layer.borderColor = UIColor.lightGray.cgColor
+           contentView.layer.cornerRadius = 8.0
+           contentView.layer.masksToBounds = true
+       }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -33,5 +38,23 @@ class TableViewCell: UITableViewCell {
         playerAgeLabel.text = player.player_age
         playerTypeLabel.text = player.player_type
         playerImageview.kf.setImage(with: URL(string: player.player_image ?? ""), placeholder: UIImage(named: "playerImage"))
+        
+        
+        
+        playerImageview.addShadow()
+        playerImageview.addElevation()
+        playerImageview.makeCircular()
+        
+        playerTypeLabel.addShadow()
+        playerTypeLabel.addElevation()
+        
+        playerNameLabel.addShadow()
+        playerNameLabel.addElevation() 
+        
+        playerAgeLabel.addShadow()
+        playerAgeLabel.addElevation()
+      
+       
+        
     }
 }

@@ -21,7 +21,26 @@ class UpComingEventsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var leagueLogoImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        awayImageView.addShadow()
+        awayImageView.addElevation() 
+        homeImageView.addShadow()
+        homeImageView.addElevation() 
+        leagueLogoImageView.addShadow()
+        leagueLogoImageView.addElevation()
+        
+        dateLabel.addShadow()
+        dateLabel.addElevation()
+        
+        timeLabel.addShadow()
+        timeLabel.addElevation()   
+        awayTeamNameLebel.addShadow()
+        awayTeamNameLebel.addElevation()
+        homeTeamNameLabel.addShadow()
+        homeTeamNameLabel.addElevation()
+        
+        
+        
+       
     }
     
 

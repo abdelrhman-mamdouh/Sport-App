@@ -14,6 +14,12 @@ class TeamsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var teamLogoImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-       
+        teamLogoImageView.makeCircular()
+        teamLogoImageView.addShadow()
+        teamLogoImageView.addElevation() 
+        
+        teamNameLabel.addShadow()
+        teamNameLabel.addElevation()
+        
     }
 }

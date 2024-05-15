@@ -32,14 +32,13 @@ class ViewController: UIViewController{
         upComingEventsCollectionView.register(nibCellUpComing, forCellWithReuseIdentifier: Constants.upComingEventCellId)
         
         
-        
         let nibCellLatestResults = UINib(nibName: Constants.latestResultCellId, bundle: nil)
         upComingEventsCollectionView.register(nibCellLatestResults, forCellWithReuseIdentifier: Constants.latestResultCellId)
        
         let nibCellTeams = UINib(nibName: Constants.teamsCollectionViewCell, bundle: nil)
         upComingEventsCollectionView.register(nibCellTeams, forCellWithReuseIdentifier: Constants.teamsCollectionViewCell)
        
-        
+    
         upComingEventsCollectionView.collectionViewLayout = createLayout()
         Utility.startLoader(in: self.view)
         fetchLeagueEvents()
@@ -64,30 +63,25 @@ class ViewController: UIViewController{
         let itemSizeHorizontal = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .fractionalHeight(1))
         let itemHorizontal = NSCollectionLayoutItem(layoutSize: itemSizeHorizontal)
         
-        let groupHeight: CGFloat = (sectionIndex == 0) ? 380 : 200 
-        let groupWidth: CGFloat = (sectionIndex == 0) ? 250 : 200
+        let groupHeight: CGFloat = (sectionIndex == 0) ? 410 : 200
+        let groupWidth: CGFloat = (sectionIndex == 0) ? 300 : 200
         let groupSizeHorizontal = NSCollectionLayoutSize(widthDimension: .absolute(groupHeight), heightDimension: .absolute(groupWidth))
         let groupHorizontal = NSCollectionLayoutGroup.horizontal(layoutSize: groupSizeHorizontal, subitems: [itemHorizontal])
         
         let sectionHorizontal = NSCollectionLayoutSection(group: groupHorizontal)
-        sectionHorizontal.orthogonalScrollingBehavior = .continuous
       
-          let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(44))
+        
+        sectionHorizontal.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+    
+        sectionHorizontal.orthogonalScrollingBehavior = .continuous
+        
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(20))
           let headerSupplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
-         
-          headerSupplementaryItem.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+    
           headerSupplementaryItem.pinToVisibleBounds = true
           
           sectionHorizontal.boundarySupplementaryItems = [headerSupplementaryItem]
-        sectionHorizontal.visibleItemsInvalidationHandler = { (items, offset, environment) in
-            items.filter { $0.representedElementKind != UICollectionView.elementKindSectionHeader }.forEach { item in
-                let distanceFromCenter = abs((item.frame.midX - offset.x) - environment.container.contentSize.width / 2.0)
-                let minScale: CGFloat = 0.8
-                let maxScale: CGFloat = 1.0
-                let scale = max(maxScale - (distanceFromCenter / environment.container.contentSize.width), minScale)
-                item.transform = CGAffineTransform(scaleX: scale, y: scale)
-            }
-        }
+      
         return sectionHorizontal
     }
     
@@ -101,13 +95,9 @@ class ViewController: UIViewController{
         let sectionVertical = NSCollectionLayoutSection(group: groupVertical)
         sectionVertical.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
       
-    
-        
         let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(20))
         let headerSupplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
         
-       
-        headerSupplementaryItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
         headerSupplementaryItem.pinToVisibleBounds = true
         
         sectionVertical.boundarySupplementaryItems = [headerSupplementaryItem]
@@ -268,27 +258,42 @@ extension ViewController: UICollectionViewDelegateFlowLayout,UICollectionViewDel
                 }
             }
         }
-        
+   
+        cell.layer.cornerRadius = 8
+        cell.layer.masksToBounds = true
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-            guard kind == UICollectionView.elementKindSectionHeader else {
-                fatalError("Invalid supplementary view type")
-            }
+        guard kind == UICollectionView.elementKindSectionHeader else {
+            fatalError("Invalid supplementary view type")
+        }
 
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Constants.sectionHeaderCell, for: indexPath) as! SectionHeaderCell
-            if let section = Section(rawValue: indexPath.section) {
-                switch section {
-                case .upcomingEvents:
-                    headerView.title.text = "Upcoming Events"
-                case .latestResults:
-                    headerView.title.text = "Latest Results"
-                case .teams:
-                    headerView.title.text = "League Teams"
-                }
+
+        if let section = Section(rawValue: indexPath.section) {
+            switch section {
+            case .upcomingEvents:
+                headerView.title.text = "Upcoming Events"
+            case .latestResults:
+                headerView.title.text = "Latest Results"
+            case .teams:
+                headerView.title.text = "League Teams"
             }
-            return headerView
         }
+
+        if let section = Section(rawValue: indexPath.section) {
+            switch section {
+            case .upcomingEvents:
+                headerView.isHidden = leagesDetailsViewModel.getLeagesEvents().isEmpty
+            case .latestResults:
+                headerView.isHidden = leagesDetailsViewModel.getLatestEvents().isEmpty
+            case .teams:
+                headerView.isHidden = leagesDetailsViewModel.getLeagueTeams().isEmpty
+            }
+        }
+
+        return headerView
+    }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 2 {
             let teamViewController = self.storyboard?.instantiateViewController(withIdentifier: "teadDetails") as! TeamDetailsViewController
