@@ -39,6 +39,9 @@
 		6EA887F42BF3FD2F00F7C1D2 /* TeamDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA887F32BF3FD2F00F7C1D2 /* TeamDetailsViewController.swift */; };
 		6EA887F82BF401D600F7C1D2 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA887F62BF401D600F7C1D2 /* TableViewCell.swift */; };
 		6EA887F92BF401D600F7C1D2 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EA887F72BF401D600F7C1D2 /* TableViewCell.xib */; };
+		6EB1510D2BF542F9003A7145 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB1510C2BF542F9003A7145 /* NetworkManagerTests.swift */; };
+		6EB151152BF54C37003A7145 /* MockNetworkManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB151142BF54C37003A7145 /* MockNetworkManger.swift */; };
+		6EB151172BF54E2A003A7145 /* TestMocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB151162BF54E2A003A7145 /* TestMocking.swift */; };
 		6EB4F6822BF157FB00BE5D89 /* TeamsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4F6802BF157FB00BE5D89 /* TeamsCollectionViewCell.swift */; };
 		6EB4F6832BF157FB00BE5D89 /* TeamsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EB4F6812BF157FB00BE5D89 /* TeamsCollectionViewCell.xib */; };
 		6EB516542BEFD53300C695A7 /* UpComingEventsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB516522BEFD53200C695A7 /* UpComingEventsCollectionViewCell.swift */; };
@@ -54,6 +57,16 @@
 		6EE63ADF2BEE88E100465D7C /* League.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE63ADE2BEE88E100465D7C /* League.swift */; };
 		6EE63AE12BEE8C0E00465D7C /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE63AE02BEE8C0E00465D7C /* Events.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6EB1510E2BF542F9003A7145 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E9EDD342BED2968007589DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E9EDD3B2BED2968007589DE;
+			remoteInfo = SportSync;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0F5B72992BF2A053003BFE1C /* FavouriteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTableViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +97,10 @@
 		6EA887F32BF3FD2F00F7C1D2 /* TeamDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailsViewController.swift; sourceTree = "<group>"; };
 		6EA887F62BF401D600F7C1D2 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		6EA887F72BF401D600F7C1D2 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		6EB1510A2BF542F9003A7145 /* SportSyncTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SportSyncTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EB1510C2BF542F9003A7145 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
+		6EB151142BF54C37003A7145 /* MockNetworkManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManger.swift; sourceTree = "<group>"; };
+		6EB151162BF54E2A003A7145 /* TestMocking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMocking.swift; sourceTree = "<group>"; };
 		6EB4F6802BF157FB00BE5D89 /* TeamsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsCollectionViewCell.swift; sourceTree = "<group>"; };
 		6EB4F6812BF157FB00BE5D89 /* TeamsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamsCollectionViewCell.xib; sourceTree = "<group>"; };
 		6EB516522BEFD53200C695A7 /* UpComingEventsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingEventsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -111,6 +128,13 @@
 				0F5E08DF2BEF8CF200821DDB /* Cosmos in Frameworks */,
 				0F5E08DC2BEF8CE200821DDB /* Kingfisher in Frameworks */,
 				6EA887EB2BF3E60A00F7C1D2 /* Lottie in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EB151072BF542F9003A7145 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				6E9EDD3E2BED2968007589DE /* SportSync */,
+				6EB1510B2BF542F9003A7145 /* SportSyncTests */,
 				6E9EDD3D2BED2968007589DE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -280,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				6E9EDD3C2BED2968007589DE /* SportSync.app */,
+				6EB1510A2BF542F9003A7145 /* SportSyncTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -362,6 +388,24 @@
 				6EA887F72BF401D600F7C1D2 /* TableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		6EB1510B2BF542F9003A7145 /* SportSyncTests */ = {
+			isa = PBXGroup;
+			children = (
+				6EB151132BF54C27003A7145 /* Mock */,
+				6EB1510C2BF542F9003A7145 /* NetworkManagerTests.swift */,
+			);
+			path = SportSyncTests;
+			sourceTree = "<group>";
+		};
+		6EB151132BF54C27003A7145 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				6EB151142BF54C37003A7145 /* MockNetworkManger.swift */,
+				6EB151162BF54E2A003A7145 /* TestMocking.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		6EB4F6842BF158A200BE5D89 /* Teams */ = {
@@ -521,6 +565,24 @@
 			productReference = 6E9EDD3C2BED2968007589DE /* SportSync.app */;
 			productType = "com.apple.product-type.application";
 		};
+		6EB151092BF542F9003A7145 /* SportSyncTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6EB151122BF542F9003A7145 /* Build configuration list for PBXNativeTarget "SportSyncTests" */;
+			buildPhases = (
+				6EB151062BF542F9003A7145 /* Sources */,
+				6EB151072BF542F9003A7145 /* Frameworks */,
+				6EB151082BF542F9003A7145 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6EB1510F2BF542F9003A7145 /* PBXTargetDependency */,
+			);
+			name = SportSyncTests;
+			productName = SportSyncTests;
+			productReference = 6EB1510A2BF542F9003A7145 /* SportSyncTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -533,6 +595,10 @@
 				TargetAttributes = {
 					6E9EDD3B2BED2968007589DE = {
 						CreatedOnToolsVersion = 15.3;
+					};
+					6EB151092BF542F9003A7145 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 6E9EDD3B2BED2968007589DE;
 					};
 				};
 			};
@@ -557,6 +623,7 @@
 			projectRoot = "";
 			targets = (
 				6E9EDD3B2BED2968007589DE /* SportSync */,
+				6EB151092BF542F9003A7145 /* SportSyncTests */,
 			);
 		};
 /* End PBXProject section */
@@ -576,6 +643,13 @@
 				6EA887F22BF3F04300F7C1D2 /* loader.json in Resources */,
 				0FDC8AB02BEEC4AC008B7C6F /* Test.storyboard in Resources */,
 				6EB4F6832BF157FB00BE5D89 /* TeamsCollectionViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EB151082BF542F9003A7145 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,7 +693,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6EB151062BF542F9003A7145 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EB151152BF54C37003A7145 /* MockNetworkManger.swift in Sources */,
+				6EB1510D2BF542F9003A7145 /* NetworkManagerTests.swift in Sources */,
+				6EB151172BF54E2A003A7145 /* TestMocking.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6EB1510F2BF542F9003A7145 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E9EDD3B2BED2968007589DE /* SportSync */;
+			targetProxy = 6EB1510E2BF542F9003A7145 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		6E9EDD452BED2968007589DE /* Main.storyboard */ = {
@@ -814,6 +906,48 @@
 			};
 			name = Release;
 		};
+		6EB151102BF542F9003A7145 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = non.SportSyncTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SportSync.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SportSync";
+			};
+			name = Debug;
+		};
+		6EB151112BF542F9003A7145 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = non.SportSyncTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SportSync.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SportSync";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -831,6 +965,15 @@
 			buildConfigurations = (
 				6E9EDD542BED296B007589DE /* Debug */,
 				6E9EDD552BED296B007589DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6EB151122BF542F9003A7145 /* Build configuration list for PBXNativeTarget "SportSyncTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EB151102BF542F9003A7145 /* Debug */,
+				6EB151112BF542F9003A7145 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
