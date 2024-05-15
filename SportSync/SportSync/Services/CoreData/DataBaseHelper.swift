@@ -40,6 +40,7 @@ class DataBaseHelper{
         FavLeagues.setValue(newItem.id, forKey: "id")
         FavLeagues.setValue(newItem.country, forKey: "country")
         FavLeagues.setValue(newItem.logo, forKey: "logo")
+        FavLeagues.setValue(newItem.sport, forKey: "sport")
         
         saveAllChanges()
         
@@ -66,7 +67,7 @@ class DataBaseHelper{
             leagueData = try managedContext.fetch(fetchRequest)
             print("FavLeagues count \(leagueData?.count ?? 0)")
             for item in leagueData! {
-                currentItem.append(LeagueDetails(id: item.value(forKey: "id") as! String, title: item.value(forKey: "title") as! String, logo: item.value(forKey: "logo") as! String, country: item.value(forKey: "country") as! String))
+                currentItem.append(LeagueDetails(id: item.value(forKey: "id") as! String, title: item.value(forKey: "title") as! String, logo: item.value(forKey: "logo") as! String, country: item.value(forKey: "country") as! String , sport: item.value(forKey: "sport") as! String))
             }
             print("favLeage count \(currentItem.count)")
            
@@ -85,7 +86,7 @@ class DataBaseHelper{
             leagueData = try managedContext.fetch(fetchRequest)
             print("FavLeagues count \(leagueData?.count ?? 0)")
             for item in leagueData! {
-                favLeaguesList?.append(LeagueDetails(id: item.value(forKey: "id") as! String, title: item.value(forKey: "title") as! String, logo: item.value(forKey: "logo") as! String, country: item.value(forKey: "country") as! String))
+                favLeaguesList?.append(LeagueDetails(id: item.value(forKey: "id") as! String, title: item.value(forKey: "title") as! String, logo: item.value(forKey: "logo") as! String, country: item.value(forKey: "country") as! String , sport: item.value(forKey: "sport") as! String))
             }
             print("favLeage count \(favLeaguesList?.count)")
            

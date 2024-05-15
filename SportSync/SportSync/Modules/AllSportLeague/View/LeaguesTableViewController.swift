@@ -8,12 +8,31 @@
 import UIKit
 import Kingfisher
 class LeaguesTableViewController: UITableViewController {
-    let names :[String] = ["mohamed" , "ahmed","anas"]
     var viewModel : LeaguesViewModel?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.allowsSelection = true
         Utility.startLoader(in: self.view)
+        
+    switch viewModel?.sport{
+        case "football":
+            tableView.backgroundView = UIImageView(image: UIImage(named: "football"))
+            break
+        case "tennis":
+            tableView.backgroundView = UIImageView(image: UIImage(named: "tennis"))
+            break
+        case "basketball":
+            tableView.backgroundView = UIImageView(image: UIImage(named: "tom-briskey-HM3WZ4B1gvM-unsplash"))
+            break
+        case "cricket":
+            tableView.backgroundView = UIImageView(image: UIImage(named: "cirket"))
+            break
+        case .none:
+            print("dede")
+        case .some(_):
+        print("dede")
+        }
+        
         viewModel?.fetchLeagues(completionHandler: { leagues, error in
             if leagues != nil {
 
@@ -21,6 +40,7 @@ class LeaguesTableViewController: UITableViewController {
                 Utility.stopLoadingAnimation(in: self.view)
                 print("success")
             }else{
+                
                 print("error")
             }
         })

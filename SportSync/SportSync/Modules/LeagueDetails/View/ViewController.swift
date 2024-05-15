@@ -159,6 +159,9 @@ class ViewController: UIViewController{
                 Utility.stopLoadingAnimation(in: self.view)
                 self.upComingEventsCollectionView.reloadData()
             } else {
+                self.dismiss(animated: true)
+                Utility.showToast(controller: self, message: "Coming soon Please wait", seconds: 2)
+                
                 print("Failed to fetch latest events")
             }
         }
@@ -173,7 +176,7 @@ class ViewController: UIViewController{
         if isFilledButton == false{
             isFilledButton = true
             checkFilledButton()
-            leagesDetailsViewModel.addItem(newItem: LeagueDetails(id: "\(leagesDetailsViewModel.id ?? 0)", title: leagesDetailsViewModel.leageName ?? "nilName", logo: leagesDetailsViewModel.leageLogo ?? "logo", country: "test"))
+            leagesDetailsViewModel.addItem(newItem: LeagueDetails(id: "\(leagesDetailsViewModel.id ?? 0)", title: leagesDetailsViewModel.leageName ?? "nilName", logo: leagesDetailsViewModel.leageLogo ?? "logo", country: "test" , sport:  leagesDetailsViewModel.sport ?? "football"))
             print("donePressed")
         }else {
             let alert = UIAlertController(title: "Alert", message: "Are you sure to delete From Favourite", preferredStyle: .actionSheet)
@@ -226,7 +229,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout,UICollectionViewDel
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.upComingEventCellId, for: indexPath) as! UpComingEventsCollectionViewCell
             
             if let latestEvents = leagesDetailsViewModel?.getLeagesEvents(), indexPath.row < latestEvents.count {
-                let event = latestEvents[indexPath.row]
+                let event = latestEvents[latestEvents.count - 1 - indexPath.row ]
                 if let upComingCell = cell as? UpComingEventsCollectionViewCell {
                     upComingCell.dateLabel.text = event.event_date
                     upComingCell.timeLabel.text = event.event_time
@@ -250,6 +253,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout,UICollectionViewDel
                     latestCell.scoreLabel.text = event.event_final_result
                     latestCell.awayTeamNameLabel.text = event.event_away_team
                     latestCell.homeTeamNameLabel.text = event.event_home_team
+                    latestCell.dateMatch.text = event.event_date
                     latestCell.homeLogoImageView.kf.setImage(with: URL(string: event.home_team_logo ?? ""), placeholder: UIImage(named: "league"))
                     latestCell.awayLogoImageView.kf.setImage(with: URL(string: event.away_team_logo ?? ""), placeholder: UIImage(named: "league"))
                 }

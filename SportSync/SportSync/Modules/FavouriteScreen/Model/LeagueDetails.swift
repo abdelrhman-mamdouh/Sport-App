@@ -11,5 +11,6 @@ struct LeagueDetails{
     let title: String
     let logo: String
     let country : String
+    let sport: String
 }
 

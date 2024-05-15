@@ -23,6 +23,7 @@ class TeamDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         playerTableView.dataSource = self
         playerTableView.delegate = self
         
+      
         playerTableView.register(UINib(nibName:"TableViewCell", bundle: nil), forCellReuseIdentifier:"TableViewCell")
         playerTableView.separatorInset = UIEdgeInsets(top: 30, left: 0, bottom: 30, right: 0)
         

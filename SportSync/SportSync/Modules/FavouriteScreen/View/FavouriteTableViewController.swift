@@ -12,6 +12,8 @@ class FavouriteTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let nib = UINib(nibName: "FavouriteLeagueCellNip", bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: "FavouriteLeagueCellNip")
         viewModel = FavouriteViewModel()
         
         
@@ -42,23 +44,17 @@ class FavouriteTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FavCell", for: indexPath) as! FavouriteTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FavouriteLeagueCellNip", for: indexPath) as! FavouriteLeagueCellNip
         let currentObject = viewModel?.getFavouriteList()[indexPath.section]
-        cell.imageLogo.kf.setImage(with: URL(string: currentObject?.logo ?? " ") , placeholder:  UIImage(named: "league"))
-        cell.titleLabel.text = currentObject?.title
+        cell.leagueImage.kf.setImage(with: URL(string: currentObject?.logo ?? " ") , placeholder:  UIImage(named: "league"))
+        cell.leagueTitle.text = currentObject?.title
         
 
         return cell
     }
     
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if Utility.checkConnection(){
-            
-        }else{
-            Utility.showToast(controller: self, message: "No Internet Connection Please Open Internet", seconds: 2)
-        }
-    }
+
    
 
     
@@ -81,7 +77,21 @@ class FavouriteTableViewController: UITableViewController {
     }
     
     
-    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if Utility.checkConnection() {
+            let viewController = self.storyboard?.instantiateViewController(withIdentifier: "leagueDetails") as! ViewController
+            let currentObject = viewModel?.getFavouriteList()[indexPath.section]
+            let leagesDetailsViewModel = LeagesDetailsViewModel(id: Int(currentObject?.id ?? "0") ?? 0, sport: currentObject?.sport ?? "", leageName: currentObject?.title ?? "", leageLogo: currentObject?.logo ?? "")
+            viewController.leagesDetailsViewModel = leagesDetailsViewModel
+            viewController.modalPresentationStyle = .fullScreen
+            
+            self.present(viewController, animated: true, completion: nil)
+        } else {
+            Utility.showToast(controller: self, message: "No Internet Connection Please Open Internet", seconds: 2)
+        }
+        
+        print("Row selected")
+    }
 
     /*
     // Override to support rearranging the table view.
