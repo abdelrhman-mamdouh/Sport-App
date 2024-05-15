@@ -54,10 +54,19 @@
                         <color key="textColor" red="0.17415321365809161" green="0.065021838981816446" blue="0.74881539885530768" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20-09-2024" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7L6-N3-TJJ">
+                        <rect key="frame" x="140.66666666666666" y="75.666666666666671" width="100" height="14.333333333333329"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="03H-hv-A59"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="6VM-iN-dL2"/>
-            <color key="backgroundColor" red="1" green="0.88059309451416234" blue="0.42395888026524442" alpha="0.26361665271577384" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="1" green="0.72243160228366499" blue="0.70501966941632321" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="45j-LV-KIo" firstAttribute="leading" secondItem="m9n-TR-QeZ" secondAttribute="trailing" constant="8" id="34k-Qc-fxs"/>
                 <constraint firstAttribute="bottom" secondItem="mEH-9H-Mxd" secondAttribute="bottom" constant="38" id="5IU-uH-e54"/>
@@ -68,12 +77,14 @@
                 <constraint firstItem="mEH-9H-Mxd" firstAttribute="leading" secondItem="fSU-iK-e5T" secondAttribute="trailing" constant="8" id="PIr-XJ-nsE"/>
                 <constraint firstAttribute="bottom" secondItem="m9n-TR-QeZ" secondAttribute="bottom" constant="25" id="Q4x-Ng-fID"/>
                 <constraint firstItem="45j-LV-KIo" firstAttribute="top" secondItem="MV4-uc-Bei" secondAttribute="top" constant="30" id="Qmw-8F-qT6"/>
+                <constraint firstAttribute="bottom" secondItem="7L6-N3-TJJ" secondAttribute="bottom" constant="8" id="cn6-EE-unF"/>
                 <constraint firstItem="mEH-9H-Mxd" firstAttribute="top" secondItem="MV4-uc-Bei" secondAttribute="top" constant="38" id="cxG-w8-qwK"/>
                 <constraint firstItem="i0B-tk-5Rc" firstAttribute="top" secondItem="MV4-uc-Bei" secondAttribute="top" constant="38" id="eIK-np-aXl"/>
                 <constraint firstAttribute="trailing" secondItem="mEH-9H-Mxd" secondAttribute="trailing" constant="8" id="hEk-yc-egl"/>
                 <constraint firstItem="m9n-TR-QeZ" firstAttribute="top" secondItem="MV4-uc-Bei" secondAttribute="top" constant="25" id="kRq-I3-wqq"/>
                 <constraint firstAttribute="bottom" secondItem="fSU-iK-e5T" secondAttribute="bottom" constant="25" id="m9h-wK-ZTB"/>
                 <constraint firstItem="m9n-TR-QeZ" firstAttribute="leading" secondItem="i0B-tk-5Rc" secondAttribute="trailing" constant="8" id="t7h-Cf-0Q8"/>
+                <constraint firstItem="7L6-N3-TJJ" firstAttribute="centerX" secondItem="45j-LV-KIo" secondAttribute="centerX" id="xSJ-A1-MMJ"/>
             </constraints>
             <size key="customSize" width="232" height="97"/>
             <userDefinedRuntimeAttributes>
@@ -84,6 +95,7 @@
             <connections>
                 <outlet property="awayLogoImageView" destination="m9n-TR-QeZ" id="lpq-ro-LcH"/>
                 <outlet property="awayTeamNameLabel" destination="i0B-tk-5Rc" id="BdK-aP-unu"/>
+                <outlet property="dateMatch" destination="7L6-N3-TJJ" id="MtT-3Z-vAh"/>
                 <outlet property="homeLogoImageView" destination="fSU-iK-e5T" id="qd3-GY-hsg"/>
                 <outlet property="homeTeamNameLabel" destination="mEH-9H-Mxd" id="ODq-s5-nYj"/>
                 <outlet property="scoreLabel" destination="45j-LV-KIo" id="lXv-GO-WOm"/>

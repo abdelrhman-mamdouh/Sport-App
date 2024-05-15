@@ -9,6 +9,7 @@ import UIKit
 
 class LatestResultsCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var dateMatch: UILabel!
     @IBOutlet weak var awayLogoImageView: UIImageView!
     @IBOutlet weak var homeLogoImageView: UIImageView!
     @IBOutlet weak var scoreLabel: UILabel!

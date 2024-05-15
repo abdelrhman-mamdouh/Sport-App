@@ -11,7 +11,7 @@ class LeagesDetailsViewModel {
    private var leagesEvents: [Event]?
    private var latestEvents: [Event]?
    private var leagueTeams: [Team]?
-    private let databaseHelper = DataBaseHelper.getInstance()
+   private let databaseHelper = DataBaseHelper.getInstance()
 
      var id: Int?
      var sport: String?

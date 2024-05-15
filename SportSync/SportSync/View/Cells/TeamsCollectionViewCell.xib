@@ -33,7 +33,7 @@
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="eEP-Ce-Yri"/>
-            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="hoz-f0-dGb" firstAttribute="leading" secondItem="VzY-NP-Rxs" secondAttribute="leading" id="Syf-9r-Yk3"/>
                 <constraint firstItem="Yid-3U-6ee" firstAttribute="leading" secondItem="VzY-NP-Rxs" secondAttribute="leading" constant="16" id="Z8X-mU-OaN"/>

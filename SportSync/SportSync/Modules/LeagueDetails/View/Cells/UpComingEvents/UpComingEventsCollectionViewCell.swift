@@ -12,13 +12,13 @@ class UpComingEventsCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var WeekNumLabel: UILabel!
     @IBOutlet weak var leagueNameLabel: UILabel!
     @IBOutlet weak var awayTeamNameLebel: UILabel!
     @IBOutlet weak var homeTeamNameLabel: UILabel!
     @IBOutlet weak var awayImageView: UIImageView!
     @IBOutlet weak var homeImageView: UIImageView!
     
+    @IBOutlet weak var leagueLogoImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

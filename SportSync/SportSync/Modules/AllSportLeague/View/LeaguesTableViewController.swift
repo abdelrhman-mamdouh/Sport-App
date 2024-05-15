@@ -13,9 +13,12 @@ class LeaguesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.allowsSelection = true
+        Utility.startLoader(in: self.view)
         viewModel?.fetchLeagues(completionHandler: { leagues, error in
             if leagues != nil {
+
                 self.tableView.reloadData()
+                Utility.stopLoadingAnimation(in: self.view)
                 print("success")
             }else{
                 print("error")
@@ -52,20 +55,21 @@ class LeaguesTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if Utility.checkConnection(){
+        if Utility.checkConnection() {
             let viewController = self.storyboard?.instantiateViewController(withIdentifier: "leagueDetails") as! ViewController
             
-            let leagesDetailsViewModel = LeagesDetailsViewModel(id: viewModel?.getResult()[indexPath.section].leagueKey ?? 0, sport: viewModel?.sport ?? "football", leageName: viewModel?.getResult()[indexPath.section].leagueName ?? "Nil",
-                leageLogo:viewModel?.getResult()[indexPath.section].leagueLogo ?? "logo")
+            let leagesDetailsViewModel = LeagesDetailsViewModel(id: viewModel?.getResult()[indexPath.section].leagueKey ?? 0, sport: viewModel?.sport ?? "football", leageName: viewModel?.getResult()[indexPath.section].leagueName ?? "Nil", leageLogo:viewModel?.getResult()[indexPath.section].leagueLogo ?? "logo")
             viewController.leagesDetailsViewModel = leagesDetailsViewModel
+            viewController.modalPresentationStyle = .fullScreen
+            
             self.present(viewController, animated: true, completion: nil)
-        }else{
+        } else {
             Utility.showToast(controller: self, message: "No Internet Connection Please Open Internet", seconds: 2)
         }
         
-
         print("Row selected")
     }
+
     
 
 

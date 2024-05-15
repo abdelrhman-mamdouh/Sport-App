@@ -28,7 +28,7 @@ struct Player: Codable {
     var player_name : String?
     var player_number :String?
     var player_age  : String?
-    var player_rating:  String?
+    var player_type:  String?
     var player_yellow_cards: String?
     var player_red_cards: String?
     var player_image :String?

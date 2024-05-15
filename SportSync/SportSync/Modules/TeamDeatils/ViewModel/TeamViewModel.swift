@@ -10,12 +10,16 @@ import Foundation
 class TeamViewModel {
     var id: Int?
     var sport: String?
-    var teamData: [Team]?
+    var leagueName: String?
+    var teamsData: [Team]?
+    var teamDetails: Team
     
-    init(id: Int, sport: String) {
+    init(id: Int, sport: String,leagueName :String) {
         self.id = id
         self.sport = sport
-        teamData = [Team]()
+        self.leagueName = leagueName
+        teamsData = [Team]()
+        teamDetails = Team()
     }
     
     func fetchTeam(completionHandler: @escaping ([Team]?, Error?) -> Void) {
@@ -24,7 +28,7 @@ class TeamViewModel {
         NetworkManager.shared.requestData(endpoint: sport ?? "", parameters: requestParameters) { (result: Result<TeamResponse, Error>) in
             switch result {
             case .success(let response):
-                self.teamData = response.result
+                self.teamsData = response.result
                 completionHandler(response.result, nil)
             case .failure(let error):
                 print("Error fetching teams: \(error)")

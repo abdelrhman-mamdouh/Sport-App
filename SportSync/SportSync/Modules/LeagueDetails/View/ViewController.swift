@@ -41,10 +41,11 @@ class ViewController: UIViewController{
        
         
         upComingEventsCollectionView.collectionViewLayout = createLayout()
-
+        Utility.startLoader(in: self.view)
         fetchLeagueEvents()
         fetchLatestEvents()
         fetchLeagueTeams()
+        upComingEventsCollectionView.reloadData()
     }
     
     func checkFilledButton(){
@@ -60,11 +61,12 @@ class ViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
     }
     private func createHorizontalLayout(forSection sectionIndex: Int) -> NSCollectionLayoutSection {
-        let itemSizeHorizontal = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        let itemSizeHorizontal = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .fractionalHeight(1))
         let itemHorizontal = NSCollectionLayoutItem(layoutSize: itemSizeHorizontal)
         
-        let groupHeight: CGFloat = (sectionIndex == 0) ? 380 : 200
-        let groupSizeHorizontal = NSCollectionLayoutSize(widthDimension: .absolute(groupHeight), heightDimension: .absolute(250))
+        let groupHeight: CGFloat = (sectionIndex == 0) ? 380 : 200 
+        let groupWidth: CGFloat = (sectionIndex == 0) ? 250 : 200
+        let groupSizeHorizontal = NSCollectionLayoutSize(widthDimension: .absolute(groupHeight), heightDimension: .absolute(groupWidth))
         let groupHorizontal = NSCollectionLayoutGroup.horizontal(layoutSize: groupSizeHorizontal, subitems: [itemHorizontal])
         
         let sectionHorizontal = NSCollectionLayoutSection(group: groupHorizontal)
@@ -90,7 +92,7 @@ class ViewController: UIViewController{
     }
     
     private func createVerticalLayout() -> NSCollectionLayoutSection {
-        let itemSizeVertical = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        let itemSizeVertical = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.9))
         let itemVertical = NSCollectionLayoutItem(layoutSize: itemSizeVertical)
         
         let groupSizeVertical = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(100))
@@ -154,7 +156,7 @@ class ViewController: UIViewController{
     func fetchLeagueTeams() {
         leagesDetailsViewModel.fetchLeagueTeams { teams in
             if let teams = teams {
-            
+                Utility.stopLoadingAnimation(in: self.view)
                 self.upComingEventsCollectionView.reloadData()
             } else {
                 print("Failed to fetch latest events")
@@ -228,9 +230,12 @@ extension ViewController: UICollectionViewDelegateFlowLayout,UICollectionViewDel
                 if let upComingCell = cell as? UpComingEventsCollectionViewCell {
                     upComingCell.dateLabel.text = event.event_date
                     upComingCell.timeLabel.text = event.event_time
+                    upComingCell.leagueNameLabel.text = leagesDetailsViewModel.leageName ?? "League"
+                    upComingCell.leagueLogoImageView.kf.setImage(with: URL(string: event.league_logo ?? ""), placeholder: UIImage(named: "league"))
                     upComingCell.leagueNameLabel.text = event.event_status
                     upComingCell.homeTeamNameLabel.text = event.event_home_team
                     upComingCell.awayTeamNameLebel.text = event.event_away_team
+                    upComingCell.dateLabel.text = event.event_date
                     upComingCell.homeImageView.kf.setImage(with: URL(string: event.home_team_logo ?? ""), placeholder: UIImage(named: "league"))
                     upComingCell.awayImageView.kf.setImage(with: URL(string: event.away_team_logo ?? ""), placeholder: UIImage(named: "league"))
                     
@@ -281,20 +286,20 @@ extension ViewController: UICollectionViewDelegateFlowLayout,UICollectionViewDel
             return headerView
         }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if(indexPath.section==2){
-            let viewController = self.storyboard?.instantiateViewController(withIdentifier: "id") as! MainScreenCollectionViewController
+        if indexPath.section == 2 {
+            let teamViewController = self.storyboard?.instantiateViewController(withIdentifier: "teadDetails") as! TeamDetailsViewController
             
-            self.present(viewController, animated: true, completion: nil)
+            let teamViewModel = TeamViewModel(id: leagesDetailsViewModel.id!, sport: leagesDetailsViewModel.sport!,leagueName: leagesDetailsViewModel.leageName!)
+            teamViewModel.teamsData = leagesDetailsViewModel.getLeagueTeams()
+            teamViewModel.teamDetails = leagesDetailsViewModel.getLeagueTeams()[indexPath.row]
+            
+            teamViewController.teamViewModel = teamViewModel
+            
+            teamViewController.modalPresentationStyle = .fullScreen
+            print(leagesDetailsViewModel.getLeagueTeams())
+            self.present(teamViewController, animated: true, completion: nil)
             print("Row selected")
         }
-    
-    }
-
-    func navigateToTeamDetailView(team: Team) {
-       
-     //   let teamDetailVC = TeamDetailViewController()
-    //    teamDetailVC.team = team // Pass the selected team to the detail view controller
-    //    navigationController?.pushViewController(teamDetailVC, animated: true)
     }
 
 }

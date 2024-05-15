@@ -9,8 +9,29 @@
 import Foundation
 import UIKit
 import Reachability
+import Lottie
 class Utility {
-     
+    
+    static var animationView:LottieAnimationView?
+    static func startLoader(in view: UIView) {
+                view.subviews.forEach { $0.isHidden = true }
+                animationView = LottieAnimationView(name: "loader")
+                animationView?.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+                animationView?.center = view.center
+                animationView?.loopMode = .loop
+                animationView?.contentMode = .scaleAspectFit
+                
+                view.addSubview(animationView!)
+
+                animationView?.play()
+            }
+
+            static func stopLoadingAnimation(in view: UIView) {
+                animationView?.removeFromSuperview()
+                animationView = nil
+                view.subviews.forEach { $0.isHidden = false }
+            }
+  
     
   static func showToast(controller: UIViewController, message : String, seconds: Double) {
         let alert = UIAlertController(title: nil, message:nil, preferredStyle: .alert)
