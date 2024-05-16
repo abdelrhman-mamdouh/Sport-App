@@ -21,22 +21,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SportSync" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xN-gJ-76H">
-                                <rect key="frame" x="8" y="391.33333333333331" width="377" height="69.666666666666686"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sports Hub" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xN-gJ-76H">
+                                <rect key="frame" x="0.0" y="426" width="393" height="69.333333333333314"/>
                                 <fontDescription key="fontDescription" name=".SFUI-Regular" family=".AppleSystemUIFont" pointSize="61"/>
-                                <color key="textColor" systemColor="systemGreenColor"/>
+                                <color key="textColor" systemColor="systemOrangeColor"/>
                                 <color key="highlightedColor" systemColor="systemBlueColor"/>
                                 <color key="shadowColor" systemColor="systemPinkColor"/>
                                 <size key="shadowOffset" width="5" height="2"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Olh-dw-ck6">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="426"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
-                            <constraint firstItem="8xN-gJ-76H" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="OO2-es-e1t"/>
-                            <constraint firstItem="8xN-gJ-76H" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="P33-az-HVH"/>
-                            <constraint firstItem="8xN-gJ-76H" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="dFC-iV-G0L"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8xN-gJ-76H" secondAttribute="trailing" constant="8" id="xmG-u8-Cz2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8xN-gJ-76H" secondAttribute="trailing" id="9ql-TJ-SdV"/>
+                            <constraint firstItem="8xN-gJ-76H" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ad5-v2-Wgg"/>
+                            <constraint firstItem="Olh-dw-ck6" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="0.5" id="FDq-qq-0IH"/>
+                            <constraint firstItem="Olh-dw-ck6" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Xc1-Gc-kUi"/>
+                            <constraint firstItem="Olh-dw-ck6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ctz-5W-7yy"/>
+                            <constraint firstItem="8xN-gJ-76H" firstAttribute="top" secondItem="Olh-dw-ck6" secondAttribute="bottom" id="rzC-mw-dUl"/>
+                            <constraint firstItem="Olh-dw-ck6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vkq-O9-Cos"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -46,17 +52,18 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="logo" width="500" height="500"/>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
-            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

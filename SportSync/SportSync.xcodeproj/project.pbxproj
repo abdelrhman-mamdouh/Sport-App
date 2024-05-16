@@ -334,7 +334,6 @@
 				6E58384B2BEE776F00C5ECD3 /* Modules */,
 				6E58384A2BEE775800C5ECD3 /* View */,
 				6EE63AD02BEE848900465D7C /* Utilities */,
-				6EC708332BEF762100F9BEED /* Configuration */,
 				6EA887EE2BF3E8CC00F7C1D2 /* Assets */,
 				6E9EDD502BED296B007589DE /* Info.plist */,
 				6E9EDD3F2BED2968007589DE /* AppDelegate.swift */,
@@ -358,7 +357,6 @@
 		6EA302112BEEF5950052806E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6EB4F6862BF15BB200BE5D89 /* Extension */,
 				6EB516512BEFD4CB00C695A7 /* Cells */,
 				6E9EDD432BED2968007589DE /* ViewController.swift */,
 			);
@@ -436,13 +434,6 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		6EB4F6862BF15BB200BE5D89 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
 		6EB516512BEFD4CB00C695A7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -485,13 +476,6 @@
 				6EC070022BF5678400DFD36A /* ExtensionLabel.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		6EC708332BEF762100F9BEED /* Configuration */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Configuration;
 			sourceTree = "<group>";
 		};
 		6EC708342BEF768A00F9BEED /* CoreData */ = {
