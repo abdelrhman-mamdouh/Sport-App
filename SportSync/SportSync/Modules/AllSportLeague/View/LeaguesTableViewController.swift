@@ -8,13 +8,13 @@
 import UIKit
 import Kingfisher
 class LeaguesTableViewController: UITableViewController {
-    var viewModel : LeaguesViewModel?
+    var viewModel : LeaguesViewModelProtocol?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.allowsSelection = true
         Utility.startLoader(in: self.view)
         
-    switch viewModel?.sport{
+        switch viewModel?.getSport(){
         case "football":
             tableView.backgroundView = UIImageView(image: UIImage(named: "football"))
             break
@@ -78,7 +78,7 @@ class LeaguesTableViewController: UITableViewController {
         if Utility.checkConnection() {
             let viewController = self.storyboard?.instantiateViewController(withIdentifier: "leagueDetails") as! ViewController
             
-            let leagesDetailsViewModel = LeagesDetailsViewModel(id: viewModel?.getResult()[indexPath.section].leagueKey ?? 0, sport: viewModel?.sport ?? "football", leageName: viewModel?.getResult()[indexPath.section].leagueName ?? "Nil", leageLogo:viewModel?.getResult()[indexPath.section].leagueLogo ?? "logo")
+            let leagesDetailsViewModel = LeagesDetailsViewModel(id: viewModel?.getResult()[indexPath.section].leagueKey ?? 0, sport: viewModel?.getSport() ?? "football", leageName: viewModel?.getResult()[indexPath.section].leagueName ?? "Nil", leageLogo:viewModel?.getResult()[indexPath.section].leagueLogo ?? "logo")
             viewController.leagesDetailsViewModel = leagesDetailsViewModel
             viewController.modalPresentationStyle = .fullScreen
             

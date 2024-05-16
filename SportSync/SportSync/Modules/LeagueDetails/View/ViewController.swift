@@ -11,7 +11,7 @@ enum Section: Int {
 class ViewController: UIViewController{
     @IBOutlet weak var favouriteButton: UIButton!
     @IBOutlet weak var upComingEventsCollectionView: UICollectionView!
-    var leagesDetailsViewModel: LeagesDetailsViewModel!
+    var leagesDetailsViewModel: LeagueDetailsViewModelProtcol!
     
     var isFilledButton:Bool?
     
@@ -126,6 +126,8 @@ class ViewController: UIViewController{
     func fetchLeagueEvents() {
         leagesDetailsViewModel.fetchUpComingEvents { events in
             if let events = events {
+                Utility.stopLoadingAnimation(in: self.view)
+
                 self.upComingEventsCollectionView.reloadData()
             } else {
                 print("Failed to fetch league events")
@@ -137,6 +139,8 @@ class ViewController: UIViewController{
         leagesDetailsViewModel.fetchLatestEvents { events in
             if let events = events {
              //   print(events)
+                Utility.stopLoadingAnimation(in: self.view)
+
                 self.upComingEventsCollectionView.reloadData()
             } else {
                 print("Failed to fetch latest events")
@@ -147,11 +151,9 @@ class ViewController: UIViewController{
         leagesDetailsViewModel.fetchLeagueTeams { teams in
             if let teams = teams {
                 Utility.stopLoadingAnimation(in: self.view)
+
                 self.upComingEventsCollectionView.reloadData()
             } else {
-                self.dismiss(animated: true)
-                Utility.showToast(controller: self, message: "Coming soon Please wait", seconds: 2)
-                
                 print("Failed to fetch latest events")
             }
         }
@@ -166,14 +168,16 @@ class ViewController: UIViewController{
         if isFilledButton == false{
             isFilledButton = true
             checkFilledButton()
-            leagesDetailsViewModel.addItem(newItem: LeagueDetails(id: "\(leagesDetailsViewModel.id ?? 0)", title: leagesDetailsViewModel.leageName ?? "nilName", logo: leagesDetailsViewModel.leageLogo ?? "logo", country: "test" , sport:  leagesDetailsViewModel.sport ?? "football"))
+            Utility.showToast(controller: self, message: "Item Added to Favourite".capitalized, seconds: 2)
+            leagesDetailsViewModel.addItem(newItem: LeagueDetails(id: "\(leagesDetailsViewModel.getLeagueid())", title: leagesDetailsViewModel.getLeagueName(), logo: leagesDetailsViewModel.getLeaguelogo(), country: "test" , sport:  leagesDetailsViewModel.getSport() ))
             print("donePressed")
         }else {
-            let alert = UIAlertController(title: "Alert", message: "Are you sure to delete From Favourite", preferredStyle: .actionSheet)
+            let alert = UIAlertController(title: "Deletion Alert", message: "Are you sure to delete From Favourite", preferredStyle: .actionSheet)
             let negativeAction = UIAlertAction(title: "Yes", style: .destructive) { UIAlertAction in
                 self.isFilledButton = false
                 self.checkFilledButton()
                 self.leagesDetailsViewModel.deleteItemWithId()
+                Utility.showToast(controller: self, message: "Item Removed From Favourite", seconds: 2)
             }
             let positiveAction = UIAlertAction(title: "No", style: .cancel) { UIAlertAction in
                 alert.dismiss(animated: true)
@@ -223,7 +227,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout,UICollectionViewDel
                 if let upComingCell = cell as? UpComingEventsCollectionViewCell {
                     upComingCell.dateLabel.text = event.event_date
                     upComingCell.timeLabel.text = event.event_time
-                    upComingCell.leagueNameLabel.text = leagesDetailsViewModel.leageName ?? "League"
+                    upComingCell.leagueNameLabel.text = leagesDetailsViewModel.getLeagueName()
                     upComingCell.leagueLogoImageView.kf.setImage(with: URL(string: event.league_logo ?? ""), placeholder: UIImage(named: "league"))
                     upComingCell.leagueNameLabel.text = event.event_status
                     upComingCell.homeTeamNameLabel.text = event.event_home_team
@@ -298,9 +302,9 @@ extension ViewController: UICollectionViewDelegateFlowLayout,UICollectionViewDel
         if indexPath.section == 2 {
             let teamViewController = self.storyboard?.instantiateViewController(withIdentifier: "teadDetails") as! TeamDetailsViewController
             
-            let teamViewModel = TeamViewModel(id: leagesDetailsViewModel.id!, sport: leagesDetailsViewModel.sport!,leagueName: leagesDetailsViewModel.leageName!)
-            teamViewModel.teamsData = leagesDetailsViewModel.getLeagueTeams()
-            teamViewModel.teamDetails = leagesDetailsViewModel.getLeagueTeams()[indexPath.row]
+            let teamViewModel : TeamViewModelProtocol = TeamViewModel(id: leagesDetailsViewModel.getLeagueid(), sport: leagesDetailsViewModel.getSport(),leagueName: leagesDetailsViewModel.getLeagueName())
+            teamViewModel.setTeamData(teamData: leagesDetailsViewModel.getLeagueTeams())
+            teamViewModel.setTeamDetails(teamDetails: leagesDetailsViewModel.getLeagueTeams()[indexPath.row])
             
             teamViewController.teamViewModel = teamViewModel
             

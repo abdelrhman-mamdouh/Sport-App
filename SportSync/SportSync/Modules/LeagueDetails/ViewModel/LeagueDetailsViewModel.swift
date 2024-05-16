@@ -7,16 +7,18 @@
 
 import Foundation
 
-class LeagesDetailsViewModel {
-   private var leagesEvents: [Event]?
-   private var latestEvents: [Event]?
-   private var leagueTeams: [Team]?
-   private let databaseHelper = DataBaseHelper.getInstance()
+class LeagesDetailsViewModel  : LeagueDetailsViewModelProtcol{
+   
+    
+    private var leagesEvents: [Event]?
+    private var latestEvents: [Event]?
+    private var leagueTeams: [Team]?
+    private let databaseHelper :LocalDataSource = DataBaseHelper.getInstance()
 
-     var id: Int?
-     var sport: String?
-     var leageName: String?
-     var leageLogo : String?
+    private var id: Int?
+    private var sport: String?
+    private var leageName: String?
+    private var leageLogo : String?
     
     
     init(id: Int, sport: String, leageName: String,leageLogo:String) {
@@ -28,26 +30,46 @@ class LeagesDetailsViewModel {
         latestEvents = [Event]()
     }
     
+    
+    func getLeagueid() -> Int {
+        return self.id ?? 0
+    }
+    
+    func getLeagueName() -> String {
+        return self.leageName ?? ""
+    }
+    
+    func getLeaguelogo() -> String {
+        return self.leageLogo ?? ""
+    }
+    
+    func getSport() -> String {
+        return self.sport ?? ""
+    }
+    
     func addItem(newItem : LeagueDetails){
-        print("pressed")
-        databaseHelper?.addItemToDataBase(newItem: newItem)
+        databaseHelper.addItemToDataBase(newItem: newItem)
     }
     
     func searchForAnItem() -> Bool{
-        let result = databaseHelper?.searchForALeague(id: "\(self.id ?? 0)").count == 1
+        let result = databaseHelper.searchForALeague(id: "\(self.id ?? 0)").count == 1
         return result
     }
     
     func deleteItemWithId(){
-        print("from view model \(self.id)")
-        databaseHelper?.deleteItemWith(idObject: self.id ?? 0)
+        
+        databaseHelper.deleteItemWith(idObject: self.id ?? 0)
     }
     
     func fetchUpComingEvents(completionHandler: @escaping ([Event]?) -> Void) {
         let date = Utility.getDates()
+        var leagueId = "leagueId"
+        if sport == "tennis"{
+            leagueId = "leagueid"
+        }
         let requestParameters: [String: Any] = [
             "met": "Fixtures",
-            "leagueId": self.id as Any,
+            leagueId : self.id as Any,
             "from": date.CurrentData,
             "to": date.NextDate
         ]
@@ -65,9 +87,13 @@ class LeagesDetailsViewModel {
     
     func fetchLatestEvents(completionHandler: @escaping ([Event]?) -> Void) {
         let date = Utility.getDates()
+        var leagueId = "leagueId"
+        if sport == "tennis"{
+            leagueId = "leagueid"
+        }
         let requestParameters: [String: Any] = [
             "met": "Fixtures",
-            "leagueId": self.id ?? 0 ,
+            leagueId: self.id ?? 0 ,
             "from": date.YesterDay,
             "to": date.CurrentData
         ]
@@ -84,7 +110,11 @@ class LeagesDetailsViewModel {
     }
     
     func fetchLeagueTeams(completionHandler: @escaping ([Team]?) -> Void) {
-        let requestParameters: [String: Any] = ["met": "Teams","leagueId": self.id ?? 0]
+        var leagueId = "leagueId"
+        if sport == "tennis"{
+            leagueId = "leagueid"
+        }
+        let requestParameters: [String: Any] = ["met": "Teams",leagueId: self.id ?? 0]
         NetworkManager.shared.requestData(endpoint: sport ?? "", parameters: requestParameters) { (result: Result<TeamResponse, Error>) in
             switch result {
             case .success(let response):

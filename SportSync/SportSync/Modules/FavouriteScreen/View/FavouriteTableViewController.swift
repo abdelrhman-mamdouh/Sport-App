@@ -8,7 +8,9 @@
 import UIKit
 import Kingfisher
 class FavouriteTableViewController: UITableViewController {
-    var viewModel : FavouriteViewModel?
+    @IBOutlet weak var emptyImage: UIImageView!
+ 
+    var viewModel : FavouriteProtocol?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,8 +31,18 @@ class FavouriteTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return viewModel?.getFavouriteList().count ?? 0
+        let numberOfItems = viewModel?.getFavouriteList().count ?? 0
+        if(numberOfItems == 0){
+            emptyImage.isHidden = false
+            
+            self.tableView.isScrollEnabled = false
+        }else{
+            emptyImage.isHidden = true
+            
+            self.tableView.isScrollEnabled = true
+        }
+        
+        return numberOfItems
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,9 +73,10 @@ class FavouriteTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let alert = UIAlertController(title: "Alert", message: "Are you sure to delete ?", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Deletion Alert", message: "Are you sure to delete ?", preferredStyle: .alert)
             let negative = UIAlertAction(title: "Yes", style: .destructive) { UIAlertAction in
                 self.viewModel?.deleteItemAt(index: indexPath.section)
+                Utility.showToast(controller: self, message: "Item Removed From Favourite", seconds: 2)
                 tableView.deleteSections([indexPath.section], with: .left)
             }
             let posativeAction = UIAlertAction(title: "Cancel", style: .cancel) { UIAlertAction in
@@ -80,8 +93,8 @@ class FavouriteTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if Utility.checkConnection() {
             let viewController = self.storyboard?.instantiateViewController(withIdentifier: "leagueDetails") as! ViewController
-            let currentObject = viewModel?.getFavouriteList()[indexPath.section]
-            let leagesDetailsViewModel = LeagesDetailsViewModel(id: Int(currentObject?.id ?? "0") ?? 0, sport: currentObject?.sport ?? "", leageName: currentObject?.title ?? "", leageLogo: currentObject?.logo ?? "")
+            let currentObject  = viewModel?.getFavouriteList()[indexPath.section]
+            let leagesDetailsViewModel : LeagueDetailsViewModelProtcol = LeagesDetailsViewModel(id: Int(currentObject?.id ?? "0") ?? 0, sport: currentObject?.sport ?? "", leageName: currentObject?.title ?? "", leageLogo: currentObject?.logo ?? "")
             viewController.leagesDetailsViewModel = leagesDetailsViewModel
             viewController.modalPresentationStyle = .fullScreen
             

@@ -6,27 +6,27 @@
 //
 
 import Foundation
-class FavouriteViewModel{
-    private let databaseHelper = DataBaseHelper.getInstance()
-    var favouriteList : [LeagueDetails]
+class FavouriteViewModel : FavouriteProtocol{
+    private  let databaseHelper : LocalDataSource = DataBaseHelper.getInstance()
+    private var favouriteList : [LeagueDetails]
     init() {
         self.favouriteList = []
     }
     func addItem(newItem : LeagueDetails){
-        databaseHelper?.addItemToDataBase(newItem: newItem)
+        databaseHelper.addItemToDataBase(newItem: newItem)
     }
     
     func saveAllChanges(){
-        databaseHelper?.saveAllChanges()
+        databaseHelper.saveAllChanges()
     }
     
     func featchData(completion : @escaping([LeagueDetails]?) -> Void){
         print("test Featch")
-        favouriteList = databaseHelper?.getAllFavouriteItem() ?? []
+        favouriteList = databaseHelper.getAllFavouriteItem()
         completion(favouriteList)
     }
     func searchForLeague(id:String,completion : @escaping([LeagueDetails]?) -> Void){
-        completion(databaseHelper?.searchForALeague(id: id))
+        completion(databaseHelper.searchForALeague(id: id))
     }
     
     func getFavouriteList() -> [LeagueDetails]{
@@ -35,7 +35,7 @@ class FavouriteViewModel{
     }
     
     func deleteItemAt(index:Int){
-        databaseHelper?.deleteItemAtIndex(id: index)
+        databaseHelper.deleteItemAtIndex(id: index)
         favouriteList.remove(at: index)
     }
     

@@ -8,7 +8,10 @@
 import Foundation
 import UIKit
 import CoreData
-class DataBaseHelper{
+
+
+
+class DataBaseHelper : LocalDataSource{
     private var appdeleget : AppDelegate
     private var managedContext :NSManagedObjectContext
     private var leagueData : [NSManagedObject]?
@@ -20,12 +23,12 @@ class DataBaseHelper{
      
     }
     
-    static func getInstance()  -> DataBaseHelper?{
+    static func getInstance()  -> DataBaseHelper{
         if instance != nil{
-            return instance
+            return instance!
         }else{
             instance = DataBaseHelper()
-            return instance
+            return instance ?? DataBaseHelper()
         }
     }
     

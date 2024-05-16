@@ -19,6 +19,7 @@ class NetworkManager {
         var requestParams = parameters ?? [:]
         requestParams["APIkey"] = Constants.apiKey
         print("api link \(url)")
+        print("api parms\(requestParams)")
     
         AF.request(url, method: method, parameters: requestParams)
             .validate()
@@ -28,6 +29,8 @@ class NetworkManager {
                 case .success(let data):
                     completion(.success(data))
                 case .failure(let error):
+                   
+              
                     completion(.failure(error))
                 }
             }

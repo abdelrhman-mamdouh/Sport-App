@@ -15,7 +15,7 @@ class TeamDetailsViewController: UIViewController, UITableViewDelegate, UITableV
 
     @IBOutlet weak var teamImageView: UIImageView!
     @IBOutlet weak var playerTableView: UITableView!
-    var teamViewModel: TeamViewModel!
+    var teamViewModel: TeamViewModelProtocol?
     
 
     override func viewDidLoad() {
@@ -27,9 +27,9 @@ class TeamDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         playerTableView.register(UINib(nibName:Constants.tableViewCell, bundle: nil), forCellReuseIdentifier:Constants.tableViewCell)
    
         
-        teamImageView.kf.setImage(with: URL(string: teamViewModel.teamDetails.team_logo ?? ""), placeholder: UIImage(named: "leauge"))
-        sportName.text = teamViewModel.sport
-        leagueName.text = teamViewModel.leagueName
+        teamImageView.kf.setImage(with: URL(string: teamViewModel?.getTeamDetails().team_logo ?? ""), placeholder: UIImage(named: "leauge"))
+        sportName.text = teamViewModel?.getSport()
+        leagueName.text = teamViewModel?.getLeagueName()
         teamImageView.makeCircular()
         teamImageView.addShadow()
         teamImageView.addElevation()
@@ -42,7 +42,7 @@ class TeamDetailsViewController: UIViewController, UITableViewDelegate, UITableV
 
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return teamViewModel.teamDetails.players?.count ?? 0
+        return teamViewModel?.getTeamDetails().players?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,7 +53,7 @@ class TeamDetailsViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
         
-        if let player = teamViewModel.teamDetails.players?[indexPath.section] {
+        if let player = teamViewModel?.getTeamDetails().players?[indexPath.section] {
           
             cell.contentView.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 30, right: 0)
             cell.setPlayerData(player)
