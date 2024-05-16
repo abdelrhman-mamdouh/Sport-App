@@ -38,7 +38,6 @@ The main screen of the app consists of two tabs: "Sports" and "Favorite Leagues"
 - Contains relevant team details without overwhelming the user.
 
 ## Technologies Used
-## Technologies Used
 - Swift
 - Alamofire: For network requests.
 - Kingfisher: For image downloading and caching.
