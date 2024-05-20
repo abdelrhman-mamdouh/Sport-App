@@ -39,8 +39,17 @@ The main screen of the app consists of two tabs: "Sports" and "Favorite Leagues"
 
 ## Technologies Used 🛠️
 - Swift
-- Alamofire: For network requests.
-- Kingfisher: For image downloading and caching.
+- MVVM Architecture: The app follows the Model-View-ViewModel (MVVM) architecture to separate concerns and improve     code maintainability.
+- Lottie: For smooth and visually appealing animations.
+  ![Lottie](https://img.shields.io/badge/Lottie-Animations-brightgreen)
+- Kingfisher: For efficient image downloading and caching.
+  ![Kingfisher](https://img.shields.io/badge/Kingfisher-Image%20Caching-blue)
+- Alamofire: For networking and API requests.
+
+https://github.com/abdelrhman-mamdouh/Sport-App/assets/63111171/da9b17d1-c6bc-48c9-aa17-edc2456e75d4
+
+
+  ![Alamofire](https://img.shields.io/badge/Alamofire-Networking-orange)
 - CoreData
 - CollectionView
 - TableView
