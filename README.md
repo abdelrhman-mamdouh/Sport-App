@@ -37,6 +37,11 @@ The main screen of the app consists of two tabs: "Sports" and "Favorite Leagues"
 - UI design emphasizes elegance and user-friendliness.
 - Contains relevant team details without overwhelming the user.
 
+## Video Demo
+
+Watch the video demonstration of the Weather Guide iOS app:
+https://github.com/abdelrhman-mamdouh/Sport-App/assets/63111171/da9b17d1-c6bc-48c9-aa17-edc2456e75d4
+
 ## Technologies Used 🛠️
 - Swift
 - MVVM Architecture: The app follows the Model-View-ViewModel (MVVM) architecture to separate concerns and improve     code maintainability.
@@ -45,13 +50,10 @@ The main screen of the app consists of two tabs: "Sports" and "Favorite Leagues"
 - Kingfisher: For efficient image downloading and caching.
   ![Kingfisher](https://img.shields.io/badge/Kingfisher-Image%20Caching-blue)
 - Alamofire: For networking and API requests.
-
-https://github.com/abdelrhman-mamdouh/Sport-App/assets/63111171/da9b17d1-c6bc-48c9-aa17-edc2456e75d4
-
-
   ![Alamofire](https://img.shields.io/badge/Alamofire-Networking-orange)
 - CoreData
 - CollectionView
 - TableView
 - Orthogonal Scrolling
 
+Happy coding! 🏀
